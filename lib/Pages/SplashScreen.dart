@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:exploreandtrip/Widget/Plane.dart';
+import 'package:exploreandtrip/Pages/Plane.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';

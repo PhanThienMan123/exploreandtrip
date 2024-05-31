@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:exploreandtrip/Widget/InformationPlane.dart';
+import 'package:exploreandtrip/Pages/InformationPlane.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -76,9 +76,7 @@ class _MyPlaneState extends State<MyPlane> with SingleTickerProviderStateMixin {
                     Expanded(
                         flex: 0,
                         child: IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
+                            onPressed: () {},
                             icon: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: Colors.white,

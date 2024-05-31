@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:exploreandtrip/Widget/Plane.dart';
+import 'package:exploreandtrip/Pages/Plane.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -371,6 +371,9 @@ class _MyInformationState extends State<MyInformation>
                         fontWeight: FontWeight.w700),
                   ),
                 ),
+                SizedBox(
+                  height: 25,
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
@@ -427,6 +430,74 @@ class _MyInformationState extends State<MyInformation>
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 25,
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.symmetric(horizontal: 42),
+                  child: Text(
+                    "Reviews",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        child: Image.asset("Asset/Images/userAvatar.jpg"),
+                      ),
+                      title: Row(
+                        children: [
+                          Text("Man ne"),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 20,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      subtitle: Text("Dai noi Hue dep vai lon"),
+                      isThreeLine: true,
+                      trailing: Text("Today"),
+                    ))
               ],
             ),
           ),
