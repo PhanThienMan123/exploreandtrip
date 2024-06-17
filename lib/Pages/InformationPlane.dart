@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:exploreandtrip/Pages/LoginPage.dart';
 import 'package:exploreandtrip/Pages/Plane.dart';
+import 'package:exploreandtrip/Service/Authcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -497,7 +499,13 @@ class _MyInformationState extends State<MyInformation>
                       subtitle: Text("Dai noi Hue dep vai lon"),
                       isThreeLine: true,
                       trailing: Text("Today"),
-                    ))
+                    )),
+                ElevatedButton(
+                    onPressed: () async {
+                      await Get.put(AuthController()).Logout(context);
+                      Get.offAll(() => Mylogin());
+                    },
+                    child: Text("Log out"))
               ],
             ),
           ),

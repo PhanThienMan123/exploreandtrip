@@ -1,45 +1,71 @@
-// To parse this JSON data, do
-//
-//     final user = userFromJson(jsonString);
+class Account {
+  String? id;
+  String? username;
+  String? password;
+  String? phonenumber;
+  List<String>? favorite;
+  String? email;
+  String? sex;
+  List<Schedule>? schedule;
 
-import 'dart:convert';
+  Account(
+      {this.id,
+      this.username,
+      this.password,
+      this.phonenumber,
+      this.favorite,
+      this.email,
+      this.sex,
+      this.schedule});
 
-User userFromJson(String str) => User.fromJson(json.decode(str));
+  Account.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    username = json['username'];
+    password = json['password'];
+    phonenumber = json['phonenumber'];
+    favorite = json['favorite'].cast<String>();
+    email = json['email'];
+    sex = json['sex'];
+    if (json['schedule'] != null) {
+      schedule = <Schedule>[];
+      json['schedule'].forEach((v) {
+        schedule!.add(new Schedule.fromJson(v));
+      });
+    }
+  }
 
-String userToJson(User data) => json.encode(data.toJson());
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['username'] = this.username;
+    data['password'] = this.password;
+    data['phonenumber'] = this.phonenumber;
 
-class User {
-  final String uid;
-  final String username;
-  final String password;
-  final String email;
-  final String phonenumber;
-  final String sex;
+    data['favorite'] = this.favorite;
+    data['email'] = this.email;
+    data['sex'] = this.sex;
+    if (this.schedule != null) {
+      data['schedule'] = this.schedule!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
 
-  User({
-    required this.uid,
-    required this.username,
-    required this.password,
-    required this.email,
-    required this.phonenumber,
-    required this.sex,
-  });
+class Schedule {
+  String? id;
+  String? datetime;
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        uid: json["id"],
-        username: json["username"],
-        password: json["password"],
-        email: json["email"],
-        phonenumber: json["phonenumber"],
-        sex: json["sex"],
-      );
+  Schedule({this.id, this.datetime});
 
-  Map<String, dynamic> toJson() => {
-        "id": uid,
-        "username": username,
-        "password": password,
-        "email": email,
-        "phonenumber": phonenumber,
-        "sex": sex,
-      };
+  Schedule.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    datetime = json['datetime'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['datetime'] = this.datetime;
+    return data;
+  }
 }
